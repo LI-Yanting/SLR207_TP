@@ -21,7 +21,27 @@ public class Count {
 //		Question 7:
 		FilterProCon(list,"Question 7");
 //		Question 8:
-		FilterBizzares(list,"Question 8");
+		FilterBizzares50(list,"Question 8");
+		
+//		Question 9:
+		list = Occurrence_Clean("deontologie_police_nationale","Question 9");
+		FilterBizzares50(list,"Question 9");
+		
+//		Question 10:
+		list = Occurrence_Clean("domaine_public_fluvial","Question 10");
+		FilterBizzares50(list,"Question 10");
+		
+//		Question 11:
+//		list = Occurrence_Clean_2("sante_publique_mini","Question 11");
+//		FilterBizzares50(list,"Question 11");
+		
+//		Question 12:
+		long startTime = System.currentTimeMillis();
+		list = Occurrence_Clean_2("sante_publique_mini","Question 12");
+		long endTime   = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		System.out.println("TotalTime: "+totalTime);
+
 	}
 	
 	public static Map<String, Integer> Occurrence_1(String fileName, String outputFile) throws IOException {
@@ -124,8 +144,9 @@ public class Count {
 		while((line = bufferedReader.readLine()) != null) {
 //			System.out.println(line);
 			str = str + line + " ";
-			str = str.replaceAll("[^a-zA-Z0-9éêèëÉÊÈËôÔùÙàÀîÎïÏçÇ]"," ");
+			str = str.replaceAll("[^a-zA-Z0-9éêèëÉÊÈËôÔùÙàÀîÎïÏçÇ\\-]"," ");
 		}
+		str = str.toLowerCase();
 		
 		String[] words = str.split(" ");
 		Map<String, Integer> occurrence = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
@@ -180,13 +201,14 @@ public class Count {
 		bw.close();
 	}
 
-	public static void FilterBizzares(List<Map.Entry<String,Integer>> list, String outputFile) throws IOException {
+	public static void FilterBizzares50(List<Map.Entry<String,Integer>> list, String outputFile) throws IOException {
 	    File fout = new File(outputFile+".txt");
 		FileOutputStream fos = new FileOutputStream(fout);
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 		
 		String[] ProCons =  {"le","la","les","on","l","je","tu","il","elle","nous","vous","ils","elles",
-				"lui","leur","eux","qui","que","quoi","dont","où","mais","ou","et","donc","or","ni","car"};
+				"lui","leur","eux","qui","que","quoi","dont","où","mais","ou","et","donc","or","ni",
+				"car","ce","qu","d","s","tout","tous","si"};
 		String[] Bizzares = {"II"};  
 		String[] WORDS = new String[ProCons.length + Bizzares.length];
 		System.arraycopy(ProCons, 0, WORDS, 0, ProCons.length);
@@ -196,14 +218,93 @@ public class Count {
 		System.out.println("--------"+ outputFile +": filtre les mots bizarres--------");
 		bw.write("--------"+ outputFile +": filtre les mots bizarres--------");
 		bw.newLine();
+		int i=50;
 		for (Map.Entry<String, Integer> entry: list) {
 			if(mySet.contains(entry.getKey())) continue;
 			if(entry.getKey().matches(".*\\d+.*")) continue;
 			System.out.println(entry.getKey() + " " + entry.getValue());
 			bw.write(entry.getKey() + " " + entry.getValue());
+			i--;
 			bw.newLine();
+			if(i<0) break;
 		}
 		bw.close();
+	}
+
+	public static List<Map.Entry<String,Integer>> Occurrence_Clean_2(String fileName, String outputFile) throws IOException {
+		File fout = new File(outputFile+".txt");
+		FileOutputStream fos = new FileOutputStream(fout);
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+		System.out.println("--------"+ outputFile +"--------");
+		bw.write("--------"+ outputFile +"--------");
+		
+		String str = new String();
+		String line = null;
+		FileReader fileReader = new FileReader(fileName+".txt");
+		BufferedReader bufferedReader = new BufferedReader(fileReader);
+		
+		long startTime = System.currentTimeMillis();
+		while((line = bufferedReader.readLine()) != null) {
+			line = line.replaceAll("[^a-zA-Z0-9éêèëÉÊÈËôÔùÙàÀîÎïÏçÇ\\-]"," ");
+			str = str + line + " ";
+		}
+		str = str.toLowerCase();
+		
+		String[] ProCons =  {"le","la","les","on","l","je","tu","il","elle","nous","vous","ils","elles",
+				"lui","leur","eux","qui","que","quoi","dont","où","mais","ou","et","donc","or","ni",
+				"car","ce","qu","d","s","tout","tous","si","cette"};
+		String[] Bizzares = {"II","de","des","à","du","en","un","une","dans","est","par","au","sont",
+				"sur","ne","a","être","ses","son","pas","ii","ier","n"};
+		Set<String> mySet_ProCons = new HashSet<String>(Arrays.asList(ProCons));
+		Set<String> mySet_Bizzares = new HashSet<String>(Arrays.asList(Bizzares));
+		Set<String> mySet = new HashSet<String>();
+		mySet.addAll(mySet_ProCons);
+		mySet.addAll(mySet_Bizzares);
+
+		String[] words = str.split(" ");
+		Map<String, Integer> occurrence = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+		
+		for(String w : words) {
+			if(mySet.contains(w)) continue;
+			if(w.matches(".*\\d+.*")) continue;
+			if(w==null || w=="") continue;
+			Integer n = occurrence.get(w);
+			if(n==null) n=1;
+			else n++;
+			occurrence.put(w, n);
+		}
+		long endTime   = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		System.out.println("Time Nettoyer/filtrer and Compter: " + totalTime);
+		
+		startTime = System.currentTimeMillis();
+//		Descending Comparator
+		Comparator<Map.Entry<String, Integer>> valueComparator = new Comparator<Map.Entry<String, Integer>>() {
+			@Override
+			public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
+				return o2.getValue() - o1.getValue();
+			}
+		};
+//		Map to List
+		List<Map.Entry<String,Integer>> list = new ArrayList<Map.Entry<String, Integer>>(occurrence.entrySet());
+//		Sort
+		Collections.sort(list, valueComparator);
+		endTime   = System.currentTimeMillis();
+		totalTime = endTime - startTime;
+		System.out.println("Time Tri: " + totalTime);
+		bufferedReader.close();
+		
+		bw.newLine();
+		int i=50;
+		for (Map.Entry<String, Integer> entry: list) {
+			System.out.println(entry.getKey() + " " + entry.getValue());
+			bw.write(entry.getKey() + " " + entry.getValue());
+			i--;
+			bw.newLine();
+			if(i<0) break;
+		}
+		bw.close();
+		return list;
 	}
 }
 
