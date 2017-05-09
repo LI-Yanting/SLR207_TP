@@ -1,24 +1,23 @@
---------Question 8: filtre les mots bizarres--------
- 65
+----------------Question 8: filtre les mots bizarres----------------
 de 12
 biens 8
-forestier 7
-code 6
+Code 6
+forestier 6
 des 5
-partie 5
+Partie 5
 agroforestiers 4
 aux 4
 communes 4
-dispositions 4
+Dispositions 4
 forestiers 4
 gestion 4
-mayotte 4
+Mayotte 4
 à 4
 législative 3
 accordé 2
 agroforestière 2
 aides 2
-article 2
+Article 2
 attachées 2
 bonne 2
 bénéfice 2
@@ -29,8 +28,7 @@ est 2
 fait 2
 forestière 2
 garanties 2
-ii 2
-livre 2
+Livre 2
 ne 2
 par 2
 pas 2
@@ -42,11 +40,10 @@ présentant 2
 publiques 2
 régis 2
 souscrivent 2
-table 2
-titre 2
+Table 2
+Titre 2
 unité 2
 volontairement 2
-- 1
 matières 1
-plan 1
-sommaire 1
+Plan 1
+Sommaire 1

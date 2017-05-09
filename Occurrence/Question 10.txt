@@ -1,26 +1,26 @@
---------Question 10: filtre les mots bizarres--------
- 1987
+----------------Question 10: filtre les mots bizarres----------------
 de 630
+Le 433
 du 347
 à 229
-des 222
+Des 222
 est 187
-article 175
+Article 175
 dans 156
-un 137
+Un 137
 par 124
 sur 123
 en 115
 bateau 106
 au 99
-immatriculation 82
+Immatriculation 82
 pour 75
 tribunal 72
 lieu 69
 aux 66
 bureau 50
-code 48
-titre 48
+Code 48
+Titre 48
 navigation 46
 a 43
 bateaux 43
