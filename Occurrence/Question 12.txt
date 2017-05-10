@@ -51,8 +51,4 @@ après 3554
 modalités 3412
 arrêté 3404
 
-----------Time Use----------
-Time Nettoyer: 455.231 s
-Time filtrer and Compter: 2.113 s
-Time Tri: 0.011 s
-TotalTime: 457.358 s
+----------Time Use----------Time Lire et Nettoyer: 1.633 sTime Split: 0.286 sTime filtrer and Compter: 3.601 sTime Tri: 0.008 sTotalTime: 5.528 s

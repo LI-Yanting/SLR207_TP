@@ -1,5 +1,4 @@
---------Question 11--------
- 101560
+----------------Question 11: filtre les mots bizarres----------------
 article 10536
 santé 4694
 aux 3535
@@ -34,7 +33,6 @@ modalités 984
 section 984
 sécurité 980
 fait 971
-n 947
 mentionnés 867
 partie 866
 directeur 862
@@ -47,6 +45,8 @@ lorsque 760
 médicale 758
 après 756
 avec 746
-ier 746
 avis 744
 général 730
+sans 723
+même 713
+autorité 683

@@ -1,2 +1,6 @@
-----------------Q_test----------------article 10536santé 4694aux 3535pour 3166etat 2363conditions 2155peut 1969titre 1914code 1907conseil 1803dispositions 1767application 1662chapitre 1589cas 1560agence 1542présent 1473ces 1441établissement 1374personnes 1366prévues 1332personne 1316alinéa 1271ainsi 1213soins 1166établissements 1151articles 1086autorisation 1085produits 1082peuvent 1033décret 1002modalités 984section 984sécurité 980fait 971mentionnés 867partie 866directeur 862exercice 826formation 789représentant 788sous-section 788sous 783lorsque 760médicale 758après 756avec 746avis 744général 730sans 723même 713autorité 683
-----------Time Use----------Time Lire et Nettoyer: 15.797 sTime Split: 0.062 sTime filtrer and Compter: 0.579 sTime Tri: 0.009 sTotalTime: 16.447 s
+----------------Q_test----------------l'article 22922; 19326l. 18410aux 16120: 16098pour 15804santé 14301r. 11224d'un 9664directeur 8442conditions 7862peut 7834l'agence 7560d'une 7372conseil 7306cas 6932général 6624ces 6176dispositions 5836sécurité 5160ainsi 4960produits 4919↬
+
+les 4844prévues 4680titre 4499avec 4480demande 4444articles 4280membres 4048↬
+
+le 4040établissements 4030code 4013personnes 3986mentionnés 3952médicament 3922chargé 3878présent 3782mise 3684peuvent 3628ministre 3620nationale 3602soins 3602délai 3588régionale 3574sa 3552l'établissement 3520personne 3482modalités 3360commission 3288après 3250lorsque 3120
+----------Time Use----------Time Lire et Nettoyer: 0.193 sTime Split: 1.035 sTime filtrer and Compter: 3.541 sTime Tri: 0.018 sTotalTime: 4.788 s

@@ -1,26 +1,25 @@
 ----------------Question 10: filtre les mots bizarres----------------
 de 630
-Le 433
 du 347
 à 229
-Des 222
+des 222
 est 187
-Article 175
+article 175
 dans 156
-Un 137
+un 137
 par 124
 sur 123
 en 115
 bateau 106
 au 99
-Immatriculation 82
+immatriculation 82
 pour 75
 tribunal 72
 lieu 69
 aux 66
 bureau 50
-Code 48
-Titre 48
+code 48
+titre 48
 navigation 46
 a 43
 bateaux 43
@@ -50,3 +49,4 @@ jours 30
 vente 30
 greffe 28
 acte 26
+devant 26
